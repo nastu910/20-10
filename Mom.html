@@ -477,11 +477,8 @@
     </div>
 
     <script>
-        // Lưu tên vào bộ nhớ trình duyệt
-        const savedName = localStorage.getItem('recipientName');
-        if (savedName) {
-            document.getElementById('recipientName').textContent = savedName;
-        }
+        // Lưu tên trong bộ nhớ (không sử dụng localStorage)
+        let currentName = 'To My Mom';
 
         function openModal() {
             const modal = document.getElementById('editModal');
@@ -498,8 +495,8 @@
         function saveName() {
             const newName = document.getElementById('nameInput').value.trim();
             if (newName) {
+                currentName = newName;
                 document.getElementById('recipientName').textContent = newName;
-                localStorage.setItem('recipientName', newName);
                 closeModal();
             }
         }
@@ -549,6 +546,3 @@
     </script>
 </body>
 </html>
-
-
-
